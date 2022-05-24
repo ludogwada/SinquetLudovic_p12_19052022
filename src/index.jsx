@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { 
-  BrowserRouter as Router } from 'react-router-dom';
+  BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Header from './components/Header/header';
 import Dashboard from './pages/Dashboard/dashboard';
+import Sidebar from './components/Sidebar/sidebar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,7 +14,10 @@ root.render(
 	<React.StrictMode>
 		<Router>
 			<Header />
-			<Dashboard />
+			<Sidebar />
+			<Routes>
+				<Route exact path='/:userId' element={<Dashboard />} />
+			</Routes>
 		</Router>
 	</React.StrictMode>
 );
