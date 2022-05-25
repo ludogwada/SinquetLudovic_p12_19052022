@@ -1,14 +1,23 @@
-import { UserData } from "../../utils/Api/callDataMocked";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { ApiUser } from "../../utils/Api/callApi";
 
-function Score(props) {
+function Score() {
 
-    const {id} = props
+    const {userId} = useParams({}) 
 
-    const score = UserData(id)
-    const data = score.score
+    const [userScore, setUserScore] = useState([])
+
+    useEffect(()=> {
+        const getScore = async ()=> {
+            const data = await ApiUser(userId)
+            setUserScore(data.data.todayScore)
+        }
+        getScore()
+    }, [userId])
 
     return (
-        <div>{data}</div>
+        <div>{userScore}</div>
     )
 }
 

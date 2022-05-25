@@ -1,13 +1,21 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from "recharts";
-import { UserPerformance } from "../../utils/Api/callDataMocked";
+import { ApiPerformance } from "../../utils/Api/callApi";
 
+function Performance() {
 
-function Performance(prpos) {
+    const {userId} = useParams({})
 
-    const {id} = prpos
+    const [userPerformance, setUserPerformance] = useState([])
 
-    const performance = UserPerformance(id)
-    const data = performance.data
+    useEffect(() => {
+      const getPerformance = async ()=>{
+        const data = await ApiPerformance(userId)
+        setUserPerformance(data.data.data)
+      }
+      getPerformance()
+    },[userId])
 
 return (
     <RadarChart
@@ -16,14 +24,13 @@ return (
       outerRadius={150}
       width={500}
       height={500}
-      data={data}
+      data={userPerformance}
     >
       <PolarGrid />
       <PolarAngleAxis dataKey="subject" />
       <PolarRadiusAxis />
       <Radar
-        name="Mike"
-        dataKey="A"
+        dataKey="value"
         stroke="#8884d8"
         fill="#8884d8"
         fillOpacity={0.6}

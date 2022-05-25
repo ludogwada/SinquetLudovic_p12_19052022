@@ -1,18 +1,27 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {LineChart,Line,XAxis,YAxis,CartesianGrid,Tooltip,Legend} from "recharts";
-import { AverageActivity } from "../../utils/Api/callDataMocked";
+import { ApiAverage } from "../../utils/Api/callApi";
 
-function AverageSessions(props) {
+function AverageSessions() {
 
-    const {id} = props
+    const {userId} = useParams({})
 
-    const UserAverageSession = AverageActivity(id)
-    const data = UserAverageSession.sessions
+    const [userAverageSession, setUserAverageSession] = useState([])
+
+    useEffect(()=> {
+      const getAverage = async ()=>{
+        const data = await ApiAverage(userId)
+        setUserAverageSession(data.data.sessions)
+      }
+      getAverage()
+    },[userId])
 
     return (
         <LineChart
-          width={500}
-          height={300}
-          data={data}
+          width={258}
+          height={263}
+          data={userAverageSession}
           margin={{
             top: 5,
             right: 30,
@@ -24,10 +33,9 @@ function AverageSessions(props) {
           <XAxis dataKey="day" />
           <YAxis />
           <Tooltip />
-          <Legend />
           <Line
-            type="monotone"
-            dataKey="session"
+            type="basis"
+            dataKey="sessionLength"
             stroke="#8884d8"
             activeDot={{ r: 8 }}
           />

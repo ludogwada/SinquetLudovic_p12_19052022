@@ -1,21 +1,31 @@
-import { UserActivity } from "../../utils/Api/callDataMocked";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,  } from "recharts";
+import colors from "../../utils/style/colors";
+import { ApiActivity } from "../../utils/Api/callApi";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-function DailyActivity(props) {
+function DailyActivity() {
 
-    const {id} = props
+    const {userId} = useParams({})
 
-    const UserDailyActivity = UserActivity(id)
-    const data = UserDailyActivity.sessions
+    const [userDailyActivity, setUserDailyActivity] = useState([])
 
-    for (let i = 0 ;i<data.length; i++)
-        {data[i].day = i+1}
-    
+    useEffect(() => {
+        const getActivity = async ()=>{
+            const data = await ApiActivity(userId)
+            setUserDailyActivity(data.data.sessions)
+        }
+        getActivity()
+    },[userId])
+
+    for (let i = 0 ;i<userDailyActivity.length; i++)
+        {userDailyActivity[i].day = i+1}
+
         return (
                 <BarChart
-                    width={500}
-                    height={300}
-                    data={data}
+                    width={835}
+                    height={320}
+                    data={userDailyActivity}
                     margin={{
                     top: 5,
                     right: 30,
@@ -25,11 +35,11 @@ function DailyActivity(props) {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="day" />
-                    <YAxis />
+                    <YAxis orientation="right" />
                     <Tooltip />
                     <Legend />
-                    <Bar dataKey="Poids (kg)" fill="#8884d8" />
-                    <Bar dataKey="Calories brulées (Kcal)" fill="#82ca9d" />
+                    <Bar dataKey="kilogram"  fill={colors.Grey} />
+                    <Bar dataKey="calories" fill={colors.RedGraph} />
                 </BarChart>
         );
       

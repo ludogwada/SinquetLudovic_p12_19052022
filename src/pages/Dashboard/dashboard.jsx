@@ -1,17 +1,14 @@
 // import { Navigate, useParams } from "react-router-dom";
-import Sidebar from "../../components/Sidebar/sidebar";
 import styled from "styled-components";
 import colors from "../../utils/style/colors";
 import { useParams } from "react-router-dom";
-import {UserData} from "../../utils/Api/callDataMocked";
 import DailyActivity from "../../components/DailyActivity/dailyActivity";
-import Calorie from "../../components/Nutrtion/calorie";
-import Carbohydrate from "../../components/Nutrtion/carbohydrate";
-import Lipid from "../../components/Nutrtion/lipid";
-import Protein from "../../components/Nutrtion/protein";
 import Score from "../../components/Score/score";
 import AverageSessions from "../../components/AverageActivity/averageActivity";
 import Performance from "../../components/Performance/performance";
+import { useEffect, useState } from "react";
+import { ApiUser } from "../../utils/Api/callApi";
+import KeyData from "../../components/KeyData/keyData";
 
 
 const DashboardPage = styled.article`
@@ -42,49 +39,28 @@ const Quote = styled.span`
 
 function Dashboard() {
     
-    
     let { userId } = useParams({})
     
-    // const [userName, setUserName ] = useState({})
+    const [userName, setUserName ] = useState([])
     
-    // useEffect(() => {
-    //     const fetchData = async ()=>{
-    //         const currentUserName = await ApiUserName(userId)
-    //         setUserName(currentUserName)
-    //     }
-        
-        
-    //     fetchData()
-    // }, [userId])
-    
-    // console.log(userName);
-
-    const user = UserData(userId)
+    useEffect(() => {
+        const getData = async ()=>{
+            const data = await ApiUser(userId)
+            setUserName(data.data.userInfos)
+        }
+        getData()
+    }, [userId])
     
     return(
         <main>
-            <Sidebar />
             <DashboardPage>
-                <Hello>Bonjour<Name>{user.userInfos.firstName}</Name></Hello>
+                <Hello>Bonjour<Name>{userName.firstName}</Name></Hello>
                 <Quote>Félicitation ! Vous avez explosé vos objectifs hier 👏</Quote>
-                <DailyActivity
-                    id = {userId} />
-                <AverageSessions
-                    id = {userId} />
-                <Performance
-                    id = {userId} />
-                <Score 
-                    id = {userId} />
-                <Calorie 
-                    id = {userId} />
-                <Carbohydrate
-                    id = {userId} />
-                <Lipid
-                    id = {userId} />
-                <Protein 
-                    id = {userId} />
-               
-                   
+                <DailyActivity />
+                <AverageSessions />
+                <Performance />
+                <Score />
+                <KeyData />
             </DashboardPage>
         </main>
     )
