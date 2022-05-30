@@ -10,11 +10,16 @@ import { useEffect, useState } from "react";
 import { ApiUser } from "../../utils/Api/callApi";
 import KeyData from "../../components/KeyData/keyData";
 
+const Main = styled.main`
+    display: flex;
+    width: 100%;
+`
 
 const DashboardPage = styled.article`
     display: flex;
     flex-direction: column;
     margin-left: 224px;
+    width: 80%
     `
     
 const Hello = styled.span`
@@ -52,7 +57,7 @@ function Dashboard() {
     }, [userId])
     
     return(
-        <main>
+        <Main>
             <DashboardPage>
                 <Hello>Bonjour<Name>{userName.firstName}</Name></Hello>
                 <Quote>Félicitation ! Vous avez explosé vos objectifs hier 👏</Quote>
@@ -60,9 +65,11 @@ function Dashboard() {
                 <AverageSessions />
                 <Performance />
                 <Score />
-                <KeyData />
             </DashboardPage>
-        </main>
+                <aside>
+                    <KeyData />
+                </aside>
+        </Main>
     )
 }
 
