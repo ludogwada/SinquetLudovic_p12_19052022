@@ -2,28 +2,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { ApiUser } from "../../utils/Api/callApi";
-import colors from "../../utils/style/colors";
-import styled from "styled-components";
-
-
-const Hello = styled.span`
-    display: flex;
-    margin-top: 70px;
-    margin-bottom: 40px;
-    font-size: 48px;
-    font-weight: 500;
-`
-
-const Name = styled.h2`
-    color: ${colors.Red};
-    font-size: 48px;
-    padding-left: 10px;
-`
-
-const Quote = styled.span`
-    font-size: 18px;
-    font-weight: 400;
-`
 
 function UserData() {
 
@@ -41,8 +19,12 @@ function UserData() {
 
     return(
         <section>
-            <Hello>Bonjour<Name>{userData.firstName}</Name></Hello>
-            <Quote>Félicitation ! Vous avez explosé vos objectifs hier 👏</Quote>
+            <span className="userHello">
+                Bonjour<p className="userHello__name">{userData.firstName}</p>
+            </span>
+            <span className="userCongratulation">
+                Félicitation ! Vous avez explosé vos objectifs hier 👏
+            </span>
         </section>
     )
 }

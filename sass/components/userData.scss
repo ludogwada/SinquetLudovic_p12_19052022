@@ -1,0 +1,19 @@
+.userHello{
+    width: 100%;
+    display: flex;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: 500;
+
+    &__name{
+        color: $Red;
+        font-size: 48px;
+        padding-left: 10px;
+    }
+}
+
+.userCongratulation{
+    font-size: 18px;
+    font-weight: 400;
+}

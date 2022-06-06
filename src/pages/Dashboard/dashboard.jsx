@@ -1,6 +1,3 @@
-// import { Navigate, useParams } from "react-router-dom";
-import styled from "styled-components";
-
 import DailyActivity from "../../components/DailyActivity/dailyActivity";
 import Score from "../../components/Score/score";
 import AverageSessions from "../../components/AverageActivity/averageActivity";
@@ -8,17 +5,6 @@ import Performance from "../../components/Performance/performance";
 import KeyData from "../../components/KeyData/keyData";
 import UserData from "../../components/UserData/userData";
 
-const Main = styled.main`
-    display: flex;
-    width: 100%;
-`
-
-const DashboardPage = styled.article`
-    display: flex;
-    flex-direction: column;
-    margin-left: 224px;
-    width: 80%
-    `
     
 
 
@@ -26,18 +12,24 @@ const DashboardPage = styled.article`
 function Dashboard() {
     
     return(
-        <Main>
-            <DashboardPage>
+        <main>
+            <article className="dashboardPage">
                 <UserData />
-                <DailyActivity />
-                <AverageSessions />
-                <Performance />
-                <Score />
-            </DashboardPage>
-                <aside>
-                    <KeyData />
-                </aside>
-        </Main>
+                <section className="array">
+                    <section className="charts">
+                        <DailyActivity />
+                        <section className="chartSquare">
+                            <AverageSessions />
+                            <Performance />
+                            <Score />
+                        </section>
+                    </section>
+                        <section className="nutriScore">
+                            <KeyData />
+                        </section>
+                </section>
+            </article>
+        </main>
     )
 }
 

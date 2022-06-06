@@ -2,32 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {XAxis,Tooltip, AreaChart, Area} from "recharts";
 import { ApiAverage } from "../../utils/Api/callApi";
-import styled from "styled-components";
-import colors from "../../utils/style/colors";
-
-const Wrapper = styled.section`
-    display: flex;
-    width : 258px;
-    height: 263px;
-    background-color: ${colors.Red};
-    color: ${colors.White};
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
-`
-
- const TitleChart = styled.div`
-    position: absolute;
-    width: 148px;
-    height: 57px;
-    margin-top: 29px;
-    margin-left: 34px;
-    opacity: 0.5;
-    
-`
-
-const H2 = styled.h2`
-    font-size: 15px;
-`
 
 function AverageSessions() {
 
@@ -48,10 +22,10 @@ function AverageSessions() {
     },[userId])
 
     return (
-        <Wrapper>
-            <TitleChart>
-                <H2>Durée moyenne des sessions</H2>
-            </TitleChart>
+        <section className="averageGraph">
+            <p className="averageGraph__titleChart">
+                Durée moyenne des sessions
+            </p>
             <AreaChart
                 width={258}
                 height={263}
@@ -104,7 +78,7 @@ function AverageSessions() {
                 fill="rgba(255, 255, 255, .1)"
             />
             </AreaChart>
-        </Wrapper>
+        </section>
     )
 }
 

@@ -2,71 +2,29 @@ import yoga from '../../assets/yoga.svg'
 import swim from '../../assets/swim.svg'
 import bike from '../../assets/bike.svg'
 import dumbbell from '../../assets/dumbbell.svg'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import colors from '../../utils/style/colors.js'
-
-const HeaderLeft = styled.menu`
-    display: flex;
-    flex-direction: column;
-    height : 100%;
-    align-items: center;
-    width: 117px;
-    margin: 0;
-    padding: 0;
-    position: fixed;
-    overflow: auto;
-    background-color: ${colors.Black};
-`
-
-const NavLeft = styled.nav`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height : 100%;
-`
-
-const NavActivity = styled(Link)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 64px;
-    width: 64px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    background-color: ${colors.White};
-`
-
-const Copiryght = styled.div`
-    transform: rotate(-90deg);
-    width: 138px;
-    color: ${colors.White};
-    font-size: 12px;
-    margin-bottom: 200px;
-`
+import { NavLink } from 'react-router-dom'
 
 function Sidebar(){
     return(
-            <HeaderLeft>
-                <NavLeft>
-                    <NavActivity to='/'>
+            <header className='headerLeft'>
+                <nav className='headerLeft__navLeft'>
+                    <NavLink className='headerLeft__navLeft__activity' to='/'>
                         <img src= {yoga} alt='activity'/>
-                    </NavActivity>
-                    <NavActivity to='/'>
+                    </NavLink>
+                    <NavLink className='headerLeft__navLeft__activity' to='/'>
                         <img src={swim} alt='activity'/>
-                    </NavActivity>
-                    <NavActivity to='/'>
+                    </NavLink>
+                    <NavLink className='headerLeft__navLeft__activity' to='/'>
                         <img src={bike} alt='activity'/>
-                    </NavActivity>
-                    <NavActivity to='/'>
+                    </NavLink>
+                    <NavLink className='headerLeft__navLeft__activity' to='/'>
                         <img src={dumbbell} alt='activity'/>
-                    </NavActivity>
-                </NavLeft>
-                <Copiryght>
-                    <p>Copiryght, SportSee 2020</p>
-                </Copiryght>
-            </HeaderLeft>
+                    </NavLink>
+                </nav>
+                <span className='headerLeft__copiryght'>
+                    Copiryght, SportSee 2020
+                </span>
+            </header>
 
     )
 }

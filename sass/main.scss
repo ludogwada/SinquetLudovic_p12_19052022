@@ -1,0 +1,17 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+
+@import "./base/reset";
+@import "./base/normalize";
+
+@import "./layout/header";
+@import "./layout/sideBar";
+
+@import "./components/userData";
+@import "./components/averageActivity";
+@import "./components/dailyActivity";
+@import "./components/keyData";
+@import "./components/performance";
+@import "./components/score";
+
+@import "./pages/dashboard"

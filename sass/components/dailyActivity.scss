@@ -1,0 +1,7 @@
+.dailyActivity{
+    width: 100%;
+    max-width: 835px;
+    height: 320px;
+    @include graph;
+    background-color: $GreyLight;
+}

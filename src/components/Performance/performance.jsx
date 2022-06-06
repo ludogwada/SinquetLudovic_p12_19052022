@@ -19,16 +19,14 @@ function Performance() {
 
 return (
     <RadarChart
-      cx={300}
-      cy={250}
-      outerRadius={150}
-      width={500}
-      height={500}
+      width={258}
+      height={263}
       data={userPerformance}
     >
       <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis />
+      <PolarAngleAxis
+        dataKey="kind"
+       />
       <Radar
         dataKey="value"
         stroke="#8884d8"

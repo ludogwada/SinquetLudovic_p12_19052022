@@ -1,5 +1,4 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer,  } from "recharts";
-import colors from "../../utils/style/colors";
 import { ApiActivity } from "../../utils/Api/callApi";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -22,40 +21,56 @@ function DailyActivity() {
         {userDailyActivity[i].day = i+1}
 
         return (
-         <ResponsiveContainer width="100%" height={320}>
-                <BarChart
-                    width={835}
-                    height={320}
-                    data={userDailyActivity}
-                    barCategoryGap="35%"
-                    margin={{
-                    top: 5,
-                    right: 30,
-                    left: 20,
-                    bottom: 5
-                    }}
-                >
-                <CartesianGrid
-                    strokeDasharray="1 3" 
-                    vertical={false}
-                />    
-                <XAxis dataKey="day" />
-                <YAxis orientation="right" />
-                <Tooltip />
-                <Legend />
-                <Bar 
-                    dataKey="kilogram"  
-                    fill={colors.Grey}
-                    maxBarSize={8} 
-                    radius={[50, 50, 0, 0]}
-                    />
-                <Bar 
-                    dataKey="calories" 
-                    fill={colors.RedGraph}
-                    maxBarSize={8}
-                    radius={[50, 50, 0, 0]} />
-            </BarChart>
-            </ResponsiveContainer>
+            <section className="dailyActivity">
+                <ResponsiveContainer >
+                        <BarChart
+                            data={userDailyActivity}
+                            barCategoryGap="35%"
+                            margin={{
+                                top: 5,
+                                right: 30,
+                                left: 20,
+                                bottom: 5
+                            }}>
+                        <CartesianGrid strokeDasharray="1 1" vertical={false}/> 
+                        <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14}} dy={15} stroke="1 1" />
+                        <YAxis  dataKey="kilogram" domain={['dataMin - 2', 'dataMax + 1']} tickCount="4" axisLine={false} orientation="right" tickLine={false} tick={{fontSize: 14}} dx={15}/>
+                        <YAxis  dataKey="kilogram" domain={[100,500]}  hide={true}/>
+                        <Tooltip
+                            itemStyle={{
+                                color:"white",
+                                backgroundColor: "#E60000",
+                                fontSize: "7px",
+                                margin: 0,
+                                border: 0,
+                                padding: "3px"
+                            }}
+                            contentStyle={{
+                                padding: "7px",
+                                backgroundColor: "#E60000", 
+                                border: 0
+                            }}
+                            separator=" "
+                            formatter={
+                                (name, value) => [value,name]
+                            }
+                            labelStyle={{display: "none"}}
+                            />
+                        <Legend />
+                        <Bar 
+                            dataKey="kilogram"  
+                            fill="#282D30"
+                            maxBarSize={7} 
+                            radius={[50, 50, 0, 0]}
+                            />
+                        <Bar 
+                            dataKey="calories" 
+                            fill="#E60000"
+                            maxBarSize={7}
+                            radius={[50, 50, 0, 0]} />
+                    </BarChart>
+                </ResponsiveContainer>
+            </section>
         );
       
 }

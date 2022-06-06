@@ -1,0 +1,17 @@
+.averageGraph{
+    width : 258px;
+    height: 263px;
+    background-color: $Red;
+    color: $White;
+    @include graph;
+
+    &__titleChart{
+        position: absolute;
+        width: 148px;
+        height: 57px;
+        margin-top: 29px;
+        margin-left: 34px;
+        opacity: 0.5;
+        font-size: 15px;
+    }
+}
