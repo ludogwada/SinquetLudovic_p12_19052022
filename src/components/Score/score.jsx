@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Legend, RadialBar, RadialBarChart } from "recharts";
 import { ApiUser } from "../../utils/Api/callApi";
 
 function Score() {
@@ -11,13 +12,39 @@ function Score() {
     useEffect(()=> {
         const getScore = async ()=> {
             const data = await ApiUser(userId)
-            setUserScore(data.data.todayScore)
+            const score = data.data.todayScore 
+            setUserScore(score)
         }
         getScore()
     }, [userId])
 
+    const modelData = [
+		{ name: "score", value: 1 - userScore, fill: "transparent" },
+		{ name: "score", value: userScore, fill: "red" },
+    ]
     return (
-        <div>{userScore}</div>
+        <section className="score">
+            <RadialBarChart
+                width={258}
+                height={263}
+                outerRadius={150}
+                data={modelData}
+                startAngle={90}
+                endAngle={450}
+                
+                >
+                <RadialBar
+                background
+                barSize={10}
+                cornerRadius={10}
+                dataKey="value"
+                />
+            </RadialBarChart>
+            <Legend
+                
+                
+            />
+        </section>
     )
 }
 

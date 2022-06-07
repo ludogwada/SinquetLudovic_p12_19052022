@@ -34,8 +34,8 @@ function DailyActivity() {
                             }}>
                         <CartesianGrid strokeDasharray="1 1" vertical={false}/> 
                         <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14}} dy={15} stroke="1 1" />
-                        <YAxis  dataKey="kilogram" domain={['dataMin - 2', 'dataMax + 1']} tickCount="4" axisLine={false} orientation="right" tickLine={false} tick={{fontSize: 14}} dx={15}/>
-                        <YAxis  dataKey="kilogram" domain={[100,500]}  hide={true}/>
+                        <YAxis yAxisId="kilo"  dataKey="kilogram" domain={['dataMin - 2', 'dataMax + 1']} tickCount="4" axisLine={false} orientation="right" tickLine={false} tick={{fontSize: 14}} dx={15}/>
+                        <YAxis  dataKey="calories" domain={[100,500]}  hide={true}/>
                         <Tooltip
                             itemStyle={{
                                 color:"white",
@@ -58,6 +58,7 @@ function DailyActivity() {
                             />
                         <Legend />
                         <Bar 
+                            yAxisId="kilo"
                             dataKey="kilogram"  
                             fill="#282D30"
                             maxBarSize={7} 

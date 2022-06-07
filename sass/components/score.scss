@@ -1,0 +1,7 @@
+.score{
+    width: 258px;
+    height: 263px;
+    margin-right: 30px;
+    background-color: $GreyLight;
+    @include graph;
+}

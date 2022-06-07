@@ -1,0 +1,8 @@
+.performance{
+    width: 258px;
+    height: 263px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: $Grey;
+    @include graph;
+}

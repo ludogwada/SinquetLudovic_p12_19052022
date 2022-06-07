@@ -12,29 +12,60 @@ function Performance() {
     useEffect(() => {
       const getPerformance = async ()=>{
         const data = await ApiPerformance(userId)
-        setUserPerformance(data.data.data)
+        const formatData = data.data.data.map((data) =>{
+          switch (data.kind) {
+            case 1:
+              return { ...data, kind: 'Cardio'}
+            case 2:
+              return { ...data, kind: 'Energie'}
+            case 3:
+              return { ...data, kind: 'Endurance'}
+            case 4:
+              return { ...data, kind: 'Force'}
+            case 5:
+              return { ...data, kind: 'Vitesse'}
+            case 6:
+              return { ...data, kind: 'Intensité'}
+            default:
+              return {...data }              
+          }
+        })
+        setUserPerformance(formatData)
       }
       getPerformance()
     },[userId])
 
 return (
+  <section className="performance">
+
     <RadarChart
       width={258}
       height={263}
+      outerRadius="70%"
       data={userPerformance}
-    >
-      <PolarGrid />
+      margin={{left:10,right:10}}
+      >
+      <PolarGrid 
+        radialLines={false}
+        />
+      
       <PolarAngleAxis
         dataKey="kind"
-       />
+        stroke="white"
+        tick={{fontSize:10}}
+        tickLine={false}
+        axisLine={false}
+        />
+      
       <Radar
         dataKey="value"
-        stroke="#8884d8"
-        fill="#8884d8"
+        fill="#FF0101B3"
         fillOpacity={0.6}
-      />
+        />
     </RadarChart>
+  </section>
   );
 }
 
 export default Performance
+

@@ -459,6 +459,25 @@ template {
   background-color: #FBFBFB;
 }
 
+.performance {
+  width: 258px;
+  height: 263px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-color: #282D30;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+}
+
+.score {
+  width: 258px;
+  height: 263px;
+  margin-right: 30px;
+  background-color: #FBFBFB;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  border-radius: 5px;
+}
+
 .dashboardPage {
   margin-left: 224px;
 }
