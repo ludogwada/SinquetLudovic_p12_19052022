@@ -20,14 +20,19 @@ function DailyActivity() {
     for (let i = 0 ;i<userDailyActivity.length; i++)
         {userDailyActivity[i].day = i+1}
 
+    const renderColorfulLegendText = (value) => {
+        return <span style={{ color:"#74798C", marginLeft:11, marginRight:32 }}>{value}</span>;
+    }
+
         return (
             <section className="dailyActivity">
-                <ResponsiveContainer >
+                <h2 className="dailyActivity__title">Activité quotidienne</h2>
+                <ResponsiveContainer height={280} >
                         <BarChart
                             data={userDailyActivity}
                             barCategoryGap="35%"
                             margin={{
-                                top: 5,
+                                top: 20,
                                 right: 30,
                                 left: 20,
                                 bottom: 5
@@ -56,16 +61,27 @@ function DailyActivity() {
                             }
                             labelStyle={{display: "none"}}
                             />
-                        <Legend />
+                        <Legend 
+                            iconType="circle"
+                            iconSize={8}
+                            align="right"
+                            verticalAlign="top"
+                            wrapperStyle={{top:0, fontSize:14}}
+                            formatter={renderColorfulLegendText}
+
+
+                        />
                         <Bar 
                             yAxisId="kilo"
                             dataKey="kilogram"  
+                            name="Poids (kg)"
                             fill="#282D30"
                             maxBarSize={7} 
                             radius={[50, 50, 0, 0]}
                             />
                         <Bar 
-                            dataKey="calories" 
+                            dataKey="calories"
+                            name="Calories brûlées (KCal)" 
                             fill="#E60000"
                             maxBarSize={7}
                             radius={[50, 50, 0, 0]} />

@@ -40,10 +40,11 @@ function Score() {
                 dataKey="value"
                 />
             </RadialBarChart>
-            <Legend
-                
-                
-            />
+            <div className="legend">
+                <span className="legend__score">{userScore*100}%
+                    <p className="legend__text">de votre objectif</p>
+                </span>
+            </div>
         </section>
     )
 }

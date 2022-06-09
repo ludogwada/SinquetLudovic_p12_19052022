@@ -1,0 +1,23 @@
+.keyData{
+    margin-left: 31px;
+    &__count{
+        @include nutriScore;
+    }
+    &__icon{
+        display: flex;
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+        margin-right: 24px;
+    }
+
+    &__number{
+        font-size: 20px;
+        color: $Grey;
+        font-weight: 700;
+    }
+    &__text{
+        font-size: 14px;
+        color: $GreyText;
+    }
+}

@@ -78,6 +78,10 @@ h1 {
   margin: 0.67em 0;
 }
 
+h2 {
+  font-size: 15px;
+}
+
 /* Grouping content
    ========================================================================== */
 /**
@@ -451,12 +455,47 @@ template {
 }
 
 .dailyActivity {
+  position: relative;
   width: 100%;
   max-width: 835px;
   height: 320px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   border-radius: 5px;
   background-color: #FBFBFB;
+  padding-top: 24px;
+}
+.dailyActivity__title {
+  position: absolute;
+  margin-left: 32px;
+}
+
+.keyData {
+  margin-left: 31px;
+}
+.keyData__count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 258px;
+  height: 124px;
+  background-color: #FBFBFB;
+  margin-bottom: 39px;
+}
+.keyData__icon {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  margin-right: 24px;
+}
+.keyData__number {
+  font-size: 20px;
+  color: #282D30;
+  font-weight: 700;
+}
+.keyData__text {
+  font-size: 14px;
+  color: #74798C;
 }
 
 .performance {
@@ -470,12 +509,30 @@ template {
 }
 
 .score {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
   width: 258px;
   height: 263px;
-  margin-right: 30px;
   background-color: #FBFBFB;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   border-radius: 5px;
+}
+
+.legend {
+  position: absolute;
+  width: 90px;
+  text-align: center;
+  background-color: #FBFBFB;
+}
+.legend__score {
+  font-size: 26px;
+  font-weight: 700;
+}
+.legend__text {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .dashboardPage {

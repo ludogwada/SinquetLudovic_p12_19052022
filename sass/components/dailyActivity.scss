@@ -1,7 +1,14 @@
 .dailyActivity{
+    position: relative;
     width: 100%;
     max-width: 835px;
     height: 320px;
     @include graph;
     background-color: $GreyLight;
+    padding-top: 24px;
+
+    &__title{
+        position: absolute;
+        margin-left: 32px;
+    }
 }

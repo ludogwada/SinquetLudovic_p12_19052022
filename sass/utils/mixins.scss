@@ -2,3 +2,13 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     border-radius: 5px;
 }
+
+@mixin nutriScore{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 258px;
+    height: 124px;
+    background-color: $GreyLight;
+    margin-bottom: 39px;
+}
