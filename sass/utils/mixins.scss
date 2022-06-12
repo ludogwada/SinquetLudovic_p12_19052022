@@ -11,4 +11,13 @@
     height: 124px;
     background-color: $GreyLight;
     margin-bottom: 39px;
+    @media screen and (max-width: 1342px){
+        margin-top: 20px;
+        height: 90px;
+        justify-content:stretch;
+        
+    }
 }
+
+    
+    

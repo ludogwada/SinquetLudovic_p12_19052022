@@ -15,7 +15,7 @@ function Dashboard() {
         <main>
             <article className="dashboardPage">
                 <UserData />
-                <section className="array">
+                <section className="allCharts">
                     <section className="charts">
                         <DailyActivity />
                         <section className="chartSquare">

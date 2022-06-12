@@ -1,18 +1,23 @@
 .score{
-    display: flex;
     position: relative;
-    align-items: center;
-    justify-content: center;
     width: 258px;
     height: 263px;
     background-color: $GreyLight;
     @include graph;
 
+    &__title{
+        color: $GreyTitle;
+        position: absolute;
+        margin-top: 24px;
+        margin-left: 30px;
+    }
 }
 .legend{
         position:absolute;
         width: 90px;
         text-align: center;
+        margin-left: 83px;
+        margin-top: -165px;
         background-color: $GreyLight;
 
         &__score{

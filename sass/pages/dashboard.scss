@@ -1,7 +1,9 @@
 .dashboardPage{
     margin-left: 224px;
+
+    
 }
-.array{
+.allCharts{
     display: flex;
     margin-top: 77px;
     width: 100%;
@@ -20,3 +22,13 @@
     height: 100%;
     margin-top: 0;
 }
+
+@media screen and (max-width: 1342px){
+        .dashboardPage{
+            margin-left: 130px;
+        }
+        .allCharts{
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+    }

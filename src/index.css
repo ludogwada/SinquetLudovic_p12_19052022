@@ -436,6 +436,12 @@ template {
   font-weight: 400;
 }
 
+@media screen and (max-width: 1342px) {
+  .userHello {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
 .averageGraph {
   width: 258px;
   height: 263px;
@@ -467,6 +473,7 @@ template {
 .dailyActivity__title {
   position: absolute;
   margin-left: 32px;
+  color: #20253A;
 }
 
 .keyData {
@@ -480,6 +487,13 @@ template {
   height: 124px;
   background-color: #FBFBFB;
   margin-bottom: 39px;
+}
+@media screen and (max-width: 1342px) {
+  .keyData__count {
+    margin-top: 20px;
+    height: 90px;
+    justify-content: stretch;
+  }
 }
 .keyData__icon {
   display: flex;
@@ -498,6 +512,14 @@ template {
   color: #74798C;
 }
 
+@media screen and (max-width: 1342px) {
+  .keyData {
+    display: flex;
+    flex-direction: row;
+    width: 834px;
+    margin-left: 0;
+  }
+}
 .performance {
   width: 258px;
   height: 263px;
@@ -509,21 +531,26 @@ template {
 }
 
 .score {
-  display: flex;
   position: relative;
-  align-items: center;
-  justify-content: center;
   width: 258px;
   height: 263px;
   background-color: #FBFBFB;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
   border-radius: 5px;
 }
+.score__title {
+  color: #20253A;
+  position: absolute;
+  margin-top: 24px;
+  margin-left: 30px;
+}
 
 .legend {
   position: absolute;
   width: 90px;
   text-align: center;
+  margin-left: 83px;
+  margin-top: -165px;
   background-color: #FBFBFB;
 }
 .legend__score {
@@ -539,7 +566,7 @@ template {
   margin-left: 224px;
 }
 
-.array {
+.allCharts {
   display: flex;
   margin-top: 77px;
   width: 100%;
@@ -559,6 +586,16 @@ template {
   width: 20%;
   height: 100%;
   margin-top: 0;
+}
+
+@media screen and (max-width: 1342px) {
+  .dashboardPage {
+    margin-left: 130px;
+  }
+  .allCharts {
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

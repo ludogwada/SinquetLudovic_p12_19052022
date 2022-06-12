@@ -39,7 +39,7 @@ function DailyActivity() {
                             }}>
                         <CartesianGrid strokeDasharray="1 1" vertical={false}/> 
                         <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14}} dy={15} stroke="1 1" />
-                        <YAxis yAxisId="kilo"  dataKey="kilogram" domain={['dataMin - 2', 'dataMax + 1']} tickCount="4" axisLine={false} orientation="right" tickLine={false} tick={{fontSize: 14}} dx={15}/>
+                        <YAxis yAxisId="kilo"  dataKey="kilogram" domain={['dataMin - 2', 'dataMax + 1']} tickCount="6" axisLine={false} orientation="right" tickLine={false} tick={{fontSize: 14}} dx={15}/>
                         <YAxis  dataKey="calories" domain={[100,500]}  hide={true}/>
                         <Tooltip
                             itemStyle={{

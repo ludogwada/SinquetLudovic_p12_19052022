@@ -21,3 +21,12 @@
         color: $GreyText;
     }
 }
+
+@media screen and (max-width: 1342px){
+    .keyData{
+        display: flex;
+        flex-direction: row;
+        width: 834px;
+        margin-left: 0;
+    }
+}
