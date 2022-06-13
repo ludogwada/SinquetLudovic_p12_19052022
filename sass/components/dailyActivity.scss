@@ -13,3 +13,11 @@
         color: $GreyTitle;
     }
 }
+@media screen and (max-width: 1342px){
+    .dailyActivity{
+        height: 280px;
+        width: 800px;
+        margin-bottom: 20px;
+        
+    }
+}

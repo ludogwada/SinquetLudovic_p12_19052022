@@ -21,7 +21,14 @@
 @media screen and (max-width: 1342px){
     .userHello{
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+        font-size: 24px;
+        &__name{
+            font-size: 24px;
+        }
+    }
+    .userCongratulation{
+        font-size: 14px;
     }
 
 }

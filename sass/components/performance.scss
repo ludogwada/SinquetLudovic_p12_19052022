@@ -6,3 +6,9 @@
     background-color: $Grey;
     @include graph;
 }
+@media screen and (max-width: 1342px){
+    .performance{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}

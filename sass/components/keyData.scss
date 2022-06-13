@@ -25,8 +25,20 @@
 @media screen and (max-width: 1342px){
     .keyData{
         display: flex;
-        flex-direction: row;
-        width: 834px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin-left: 0;
+        height: 600px;
+        &__icon{
+            margin-right: 0;
+            width: 50px;
+        }
+        &__number{
+            font-size: 16px;
+        }
+        &__text{
+            font-size: 12px;
+        }
     }
 }

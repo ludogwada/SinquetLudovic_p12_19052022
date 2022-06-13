@@ -25,3 +25,13 @@
         }
     }
 }
+@media screen and (max-width: 1342px){
+    .headerTop{
+        height: 65px;
+    &__nav{
+        &__link{
+            font-size: 18px;
+        }
+    }
+    }
+}
