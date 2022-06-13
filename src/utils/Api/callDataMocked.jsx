@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { USER_ACTIVITY, USER_MAIN_DATA, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../../datas/data";
 
-function UserData(id) {
+function ApiUser(id) {
     
     const [userInfo] = useState(USER_MAIN_DATA)
     
@@ -11,9 +11,9 @@ function UserData(id) {
     return user;
 
 }
-UserData('12')
 
-function UserActivity(id) {
+
+function ApiActivity(id) {
 
     const [userActivity] = useState(USER_ACTIVITY)
     
@@ -24,7 +24,7 @@ function UserActivity(id) {
 
 }
 
-function AverageActivity(id) {
+function ApiAverage(id) {
 
     const [userAverageSession] = useState(USER_AVERAGE_SESSIONS)
     
@@ -34,18 +34,18 @@ function AverageActivity(id) {
     return averageSession
 }
 
-function UserPerformance(id) {
+function ApiPerformance(id) {
 
     const [userPerformance] = useState(USER_PERFORMANCE)
     
     // eslint-disable-next-line
     let performance = userPerformance.find( user => user.userId == id)
 
-    return performance
+    return {performance}
 
 }
 
 
-export {UserData, UserActivity, AverageActivity, UserPerformance}
+export {ApiUser, ApiActivity, ApiAverage, ApiPerformance}
 
 
