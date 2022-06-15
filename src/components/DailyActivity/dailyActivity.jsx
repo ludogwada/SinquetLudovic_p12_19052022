@@ -8,25 +8,13 @@ import {
 	CartesianGrid,
 	ResponsiveContainer,
 } from 'recharts';
-import { ApiActivity } from '../../utils/Api/callApi';
-import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import PropTypes from "prop-types"
 
-function DailyActivity() {
-	const { userId } = useParams({});
 
-	const [userDailyActivity, setUserDailyActivity] = useState([]);
-
-	useEffect(() => {
-		const getActivity = async () => {
-			const data = await ApiActivity(userId);
-			setUserDailyActivity(data.data.sessions);
-		};
-		getActivity();
-	}, [userId]);
-
-	for (let i = 0; i < userDailyActivity.length; i++) {
-		userDailyActivity[i].day = i + 1;
+function DailyActivity({Data}) {
+	
+	for (let i = 0; i < Data.length; i++) {
+		Data[i].day = i + 1;
 	}
 
 	const renderColorfulLegendText = (value) => {
@@ -48,7 +36,7 @@ function DailyActivity() {
 			<h2 className='dailyActivity__title'>Activité quotidienne</h2>
 			<ResponsiveContainer height={280}>
 				<BarChart
-					data={userDailyActivity}
+					data={Data}
 					barCategoryGap='35%'
 					margin={{
 						top: 20,
@@ -122,5 +110,8 @@ function DailyActivity() {
 		</section>
 	);
 }
+
+DailyActivity.propTypes = {
+    Data: PropTypes.array}
 
 export default DailyActivity;

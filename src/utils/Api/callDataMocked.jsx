@@ -3,6 +3,7 @@ import { USER_ACTIVITY, USER_MAIN_DATA, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 
 async function ApiUser(id) {
     try {
+        // eslint-disable-next-line eqeqeq
         const res = USER_MAIN_DATA.find((el) => el.userId == id);
         return {data:res};
     } catch (e) {
@@ -12,6 +13,7 @@ async function ApiUser(id) {
 
 async function ApiActivity(id) {
     try {
+        // eslint-disable-next-line eqeqeq
         const res = USER_ACTIVITY.find((el) => el.userId == id);
         return {data:res};
     } catch (e) {
@@ -21,6 +23,7 @@ async function ApiActivity(id) {
 
 async function ApiAverage(id) {
     try {
+		// eslint-disable-next-line eqeqeq
 		const res = USER_AVERAGE_SESSIONS.find((el) => el.userId == id);
         return {data:res};
     } catch (e) {
@@ -30,6 +33,7 @@ async function ApiAverage(id) {
 
 async function ApiPerformance(id) {
     try {
+		// eslint-disable-next-line eqeqeq
 		const res = USER_PERFORMANCE.find((el) => el.userId == id);
         return {data:res};
     } catch (e) {

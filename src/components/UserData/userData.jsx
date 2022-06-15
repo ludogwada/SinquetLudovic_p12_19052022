@@ -1,26 +1,12 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { ApiUser } from "../../utils/Api/callApi";
+import PropTypes from "prop-types"
 
-function UserData() {
 
-    const {userId} = useParams({})
-
-    const [userData, setUserData] = useState([])
-
-    useEffect(() => {
-      const getUserData =  async() => {
-          const data = await ApiUser(userId)
-          setUserData(data.data.userInfos)
-    } 
-    getUserData()
-    },[userId])
+function UserData({Data}) {
 
     return(
         <section>
             <span className="userHello">
-                Bonjour<p className="userHello__name">{userData.firstName}</p>
+                Bonjour<p className="userHello__name">{Data.firstName}</p>
             </span>
             <span className="userCongratulation">
                 Félicitation ! Vous avez explosé vos objectifs hier 👏
@@ -28,5 +14,8 @@ function UserData() {
         </section>
     )
 }
+
+// UserData.propTypes = {
+//     Data: PropTypes.string}
 
 export default UserData

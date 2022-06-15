@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { RadialBar, RadialBarChart } from "recharts";
-import { ApiUser } from "../../utils/Api/callApi";
+import PropTypes from "prop-types"
 
-function Score() {
 
-    const {userId} = useParams({}) 
+function Score({Data}) {
 
-    const [userScore, setUserScore] = useState([])
-
-    useEffect(()=> {
-        const getScore = async ()=> {
-            const data = await ApiUser(userId)
-            const score = data.data.todayScore || data.data.score
-            setUserScore(score)
-        }
-        getScore()
-    }, [userId])
-    
     const modelData = [
-        { name: "score", value: 1 - userScore, fill: "transparent" },
-		{ name: "score", value: userScore, fill: "red" },
+        { name: "score", value: 1 - Data, fill: "transparent" },
+		{ name: "score", value: Data, fill: "red" },
     ]
     return (
         <section className="score">
@@ -42,12 +28,15 @@ function Score() {
                 />
             </RadialBarChart>
             <div className="legend">
-                <span className="legend__score">{userScore*100}%
+                <span className="legend__score">{Data*100}%
                     <p className="legend__text">de votre objectif</p>
                 </span>
             </div>
         </section>
     )
 }
+
+// Score.propTypes = {
+//     Data: PropTypes.number}
 
 export default Score

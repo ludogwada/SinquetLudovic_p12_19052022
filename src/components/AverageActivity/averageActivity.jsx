@@ -1,25 +1,7 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import {XAxis,Tooltip, AreaChart, Area} from "recharts";
-import { ApiAverage } from "../../utils/Api/callApi";
+import PropTypes from "prop-types"
 
-function AverageSessions() {
-
-    const {userId} = useParams({})
-
-    const [userAverageSession, setUserAverageSession] = useState([])
-
-    useEffect(()=> {
-      const getAverage = async ()=>{
-        const data = await ApiAverage(userId)
-        const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-        data.data.sessions.map((session, index) => (
-            session.name = days[index]
-        ))
-        setUserAverageSession(data.data.sessions)
-      }
-      getAverage()
-    },[userId])
+function AverageSessions({Data}) {
 
     return (
         <section className="averageGraph">
@@ -29,7 +11,7 @@ function AverageSessions() {
             <AreaChart
                 width={258}
                 height={263}
-                data={userAverageSession}
+                data={Data}
                 margin={{ top: 50, right: 5, bottom: 30, left: 5 }}
 
             >
@@ -80,6 +62,10 @@ function AverageSessions() {
             </AreaChart>
         </section>
     )
+}
+
+AverageSessions.propTypes = {
+    Data: PropTypes.array
 }
 
 export default AverageSessions
