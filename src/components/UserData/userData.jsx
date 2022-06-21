@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types';
 
+/**
+ * Display welcome sentences with user data
+ * @param {any} Data
+ * @returns user Data
+ */
+
 function UserData({ Data }) {
 	return (
 		<section>
