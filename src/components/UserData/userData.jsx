@@ -1,21 +1,20 @@
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types';
 
-
-function UserData({Data}) {
-
-    return(
-        <section>
-            <span className="userHello">
-                Bonjour<p className="userHello__name">{Data.firstName}</p>
-            </span>
-            <span className="userCongratulation">
-                Félicitation ! Vous avez explosé vos objectifs hier 👏
-            </span>
-        </section>
-    )
+function UserData({ Data }) {
+	return (
+		<section>
+			<span className='userHello'>
+				Bonjour<p className='userHello__name'>{Data.firstName}</p>
+			</span>
+			<span className='userCongratulation'>
+				Félicitation ! Vous avez explosé vos objectifs hier 👏
+			</span>
+		</section>
+	);
 }
 
-// UserData.propTypes = {
-//     Data: PropTypes.string}
+UserData.propTypes = {
+	Data: PropTypes.any,
+};
 
-export default UserData
+export default UserData;

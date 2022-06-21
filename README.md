@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# SportSee
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SportSee is a startup based on sports coaching. To improve the user experience, we have created a new version of the profile page, where you can track the number of completed sessions, as well as the number of calories burned.
 
-## Available Scripts
+![made-with-create-react-app](https://user-images.githubusercontent.com/75996200/162953332-33d7bd5c-9534-48f7-98e6-62a9be776271.svg)
+![use-axios](https://user-images.githubusercontent.com/75996200/162953998-8a72b545-7300-40eb-9aed-2a873f858fe3.svg)
+![use-recharts](https://user-images.githubusercontent.com/75996200/162954385-31727a91-f0ec-4215-8669-7615c4c9dd09.svg)
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+- [NodeJS](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+- [yarn](https://yarnpkg.com/getting-started/install)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React Version 18.1.0
+- React-router-dom Version 6.3.0
+- Recharts Version 2.1.10
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend API
 
-### `npm run build`
+- Clone the Backend API on your computer: git clone https://github.com/ykazarinov/P12-backend.git
+- Install the dependencies: yarn install or npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend APP
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Clone the FrontEnd App on your computer: git clone https://github.com/ludogwada/SinquetLudovic_p12_19052022.git
+- Install the dependencies with: yarn install or npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage (in ascending order)
 
-### `npm run eject`
+### 1 Backend API
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Run the Backend Api, which will then listen on port 3000 by default : yarn dev or npm dev
+- In the terminal window, you will see the message Magic happens on port 3000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2 Frontend APP
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Go to folder "sportsee" by command cd sportsee
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Run the Frontend App, which will then listen on port 3000 by default : yarn start or npm start
 
-## Learn More
+- In the terminal window, you will see the message : ? something is already running on port 3000. Would you like to run the app on another port instead >> (Y/n)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Choice and type Y
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The App runs on http://localhost:3001/
 
-### Code Splitting
+## Notice
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Currently only 2 user profiles are present in the API (12 and 18)
 
-### Analyzing the Bundle Size
+## Author information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Ludovic Sinquet

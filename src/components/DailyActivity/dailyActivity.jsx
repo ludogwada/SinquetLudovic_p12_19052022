@@ -8,15 +8,19 @@ import {
 	CartesianGrid,
 	ResponsiveContainer,
 } from 'recharts';
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types';
 
+/**
+ * Display DailyActivity Charts
+ * @param {array} Data
+ * @returns dailyActivity Charts
+ */
 
-function DailyActivity({Data}) {
-	
+function DailyActivity({ Data }) {
 	for (let i = 0; i < Data.length; i++) {
 		Data[i].day = i + 1;
 	}
-
+	//legend
 	const renderColorfulLegendText = (value) => {
 		let libelle = '';
 		if (value === 'kg') {
@@ -112,6 +116,7 @@ function DailyActivity({Data}) {
 }
 
 DailyActivity.propTypes = {
-    Data: PropTypes.array}
+	Data: PropTypes.array,
+};
 
 export default DailyActivity;
