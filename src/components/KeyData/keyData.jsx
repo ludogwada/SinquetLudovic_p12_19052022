@@ -16,7 +16,7 @@ function KeyData({ count }) {
 			<section className='keyData__count'>
 				<img className='keyData__icon' src={calorie} alt='icon calorie' />
 				<span className='keyData__number'>
-					{count.calorieCount}Kcal
+					{count.calorieCount / 1000}Kcal
 					<p className='keyData__text'>Calories</p>
 				</span>
 			</section>
