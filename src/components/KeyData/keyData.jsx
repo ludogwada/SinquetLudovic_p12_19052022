@@ -11,12 +11,14 @@ import carbohydrate from '../../assets/carbohydrate.svg';
  */
 
 function KeyData({ count }) {
+	let calorieCountNumber = (count.calorieCount / 1000).toFixed(3);
+
 	return (
 		<section className='keyData'>
 			<section className='keyData__count'>
 				<img className='keyData__icon' src={calorie} alt='icon calorie' />
 				<span className='keyData__number'>
-					{count.calorieCount / 1000}Kcal
+					{calorieCountNumber}Kcal
 					<p className='keyData__text'>Calories</p>
 				</span>
 			</section>
