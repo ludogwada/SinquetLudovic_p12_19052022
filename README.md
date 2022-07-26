@@ -45,7 +45,7 @@ SportSee is a startup based on sports coaching. To improve the user experience, 
 
 - In the terminal window, you will see the message : ? something is already running on port 3000. Would you like to run the app on another port instead >> (Y/n)
 
-- Choice and type Y
+- Select and tape Y
 
 - The App runs on http://localhost:3001/
 
