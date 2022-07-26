@@ -14,6 +14,7 @@ import {
 	DataPerformance,
 	DataUser,
 } from '../../utils/Api/callApi';
+import Error from '../error';
 // import {
 // 	DataActivity,
 // 	DataAverage,
@@ -35,55 +36,65 @@ function Dashboard() {
 	const [userKeyData, setUserKeyData] = useState([]);
 	const [userPerformance, setUserPerformance] = useState([]);
 	const [userScore, setUserScore] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
+		setIsLoading(true);
+
 		const fetchData = async () => {
-			const getUserData = await DataUser(userId);
-			setUserData(getUserData.data.userInfos);
+			try {
+				const getUserData = await DataUser(userId);
+				setUserData(getUserData.data.userInfos);
 
-			const getAverage = await DataAverage(userId);
-			const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
-			getAverage.data.sessions.map(
-				(session, index) => (session.name = days[index])
-			);
-			setUserAverageSession(getAverage.data.sessions);
+				const getAverage = await DataAverage(userId);
+				const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+				getAverage.data.sessions.map(
+					(session, index) => (session.name = days[index])
+				);
+				setUserAverageSession(getAverage.data.sessions);
 
-			const getActivity = await DataActivity(userId);
-			setUserDailyActivity(getActivity.data.sessions);
+				const getActivity = await DataActivity(userId);
+				setUserDailyActivity(getActivity.data.sessions);
 
-			const getKeyData = await DataUser(userId);
-			setUserKeyData(getKeyData.data.keyData);
+				const getKeyData = await DataUser(userId);
+				setUserKeyData(getKeyData.data.keyData);
 
-			const getPerformance = await DataPerformance(userId);
-			const formatData = getPerformance.data.data.map((data) => {
-				switch (data.kind) {
-					case 1:
-						return { ...data, kind: 'Cardio' };
-					case 2:
-						return { ...data, kind: 'Energie' };
-					case 3:
-						return { ...data, kind: 'Endurance' };
-					case 4:
-						return { ...data, kind: 'Force' };
-					case 5:
-						return { ...data, kind: 'Vitesse' };
-					case 6:
-						return { ...data, kind: 'Intensité' };
-					default:
-						return { ...data };
-				}
-			});
-			setUserPerformance(formatData);
+				const getPerformance = await DataPerformance(userId);
+				const formatData = getPerformance.data.data.map((data) => {
+					switch (data.kind) {
+						case 1:
+							return { ...data, kind: 'Cardio' };
+						case 2:
+							return { ...data, kind: 'Energie' };
+						case 3:
+							return { ...data, kind: 'Endurance' };
+						case 4:
+							return { ...data, kind: 'Force' };
+						case 5:
+							return { ...data, kind: 'Vitesse' };
+						case 6:
+							return { ...data, kind: 'Intensité' };
+						default:
+							return { ...data };
+					}
+				});
+				setUserPerformance(formatData);
 
-			const getScore = await DataUser(userId);
-			const score = getScore.data.todayScore || getScore.data.score;
-			setUserScore(score);
+				const getScore = await DataUser(userId);
+				const score = getScore.data.todayScore || getScore.data.score;
+				setUserScore(score);
+			} catch (err) {
+				setError(true);
+			} finally {
+				setIsLoading(false);
+			}
 		};
 
 		fetchData();
 	}, [userId]);
 
-	return (
+	return error === false ? (
 		<main>
 			<article className='dashboardPage'>
 				<UserData Data={userData} />
@@ -102,6 +113,8 @@ function Dashboard() {
 				</section>
 			</article>
 		</main>
+	) : (
+		<Error />
 	);
 }
 
