@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import DailyActivity from '../../components/DailyActivity/dailyActivity';
-import Score from '../../components/Score/score';
-import AverageSessions from '../../components/AverageActivity/averageActivity';
-import Performance from '../../components/Performance/performance';
-import KeyData from '../../components/KeyData/keyData';
-import UserData from '../../components/UserData/userData';
+import DailyActivity from '../components/DailyActivity/dailyActivity';
+import Score from '../components/Score/score';
+import AverageSessions from '../components/AverageActivity/averageActivity';
+import Performance from '../components/Performance/performance';
+import KeyData from '../components/KeyData/keyData';
+import UserData from '../components/UserData/userData';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -13,8 +13,9 @@ import {
 	DataAverage,
 	DataPerformance,
 	DataUser,
-} from '../../utils/Api/callApi';
-import Error from '../error';
+} from '../utils/Api/callApi';
+import Error from './error';
+import Loader from '../components/Loader/loader';
 // import {
 // 	DataActivity,
 // 	DataAverage,
@@ -87,14 +88,18 @@ function Dashboard() {
 			} catch (err) {
 				setError(true);
 			} finally {
-				setIsLoading(false);
+				setTimeout(() => {
+					setIsLoading(false);
+				}, 2000);
 			}
 		};
 
 		fetchData();
 	}, [userId]);
 
-	return error === false ? (
+	return isLoading === true ? (
+		<Loader />
+	) : error === false ? (
 		<main>
 			<article className='dashboardPage'>
 				<UserData Data={userData} />

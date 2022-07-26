@@ -11,7 +11,7 @@ function Error() {
 				</span>
 			</article>
 			<article className='redirection'>
-				<Link to='/12'>
+				<Link to='/'>
 					<h4 className='redirection__h4'>Retourner sur la page d'accueil</h4>
 				</Link>
 			</article>

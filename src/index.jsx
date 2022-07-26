@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Header from './components/Header/header';
-import Dashboard from './pages/Dashboard/dashboard';
+import Dashboard from './pages/dashboard';
 import Sidebar from './components/Sidebar/sidebar';
+import Home from './pages/home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,6 +16,7 @@ root.render(
 			<Header />
 			<Sidebar />
 			<Routes>
+				<Route path='/' element={<Home />} />
 				<Route exact path='/:userId' element={<Dashboard />} />
 			</Routes>
 		</Router>
